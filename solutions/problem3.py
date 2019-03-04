@@ -1,6 +1,5 @@
-for i in range(input()):
-    inp = set()
-    for s in raw_input().split():
-        inp.add(s)
-    inp = sorted(inp)
-    print(inp[len(inp)-input()])
+#!/usr/bin/python3
+i = []
+for j in range(int(input())):
+    [i.append(s) if s not in i else 0 for s in input().split()]
+    print(sorted(i)[-int(input())])
