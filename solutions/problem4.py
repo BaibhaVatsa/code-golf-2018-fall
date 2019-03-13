@@ -1,16 +1,17 @@
-p = []
-up = raw_input()
-while not():    #add type checker
-    p.append(up)
-t = up
-i = 0
-s = True
-while (i < t) and (i < len(p)):
+#!/usr/bin/python3
+p, k, i  = [], 0, 0
+while True:
+    try:
+        up = input()
+        k = int(up)
+        break
+    except ValueError:
+        p.append(up)
+while k > 0 and i < len(p):
     for j in range(len(p)-1):
-        for k in range(1,len(p[i])):
-            if (k < len(p[j+1])) and (p[j][k] is p[i][k]):
-                s = False
-                break
-        if s is True:
-            ++i
-            print(p[j]+"\n"+p[j+1])
+        printbool = True
+        for char in range(len(p[j+1]) if len(p[j+1]) <= len(p[i]) else len(p[i])):
+            printbool = False if p[j+1][char] == p[i][char] else printbool
+        k -=2 if printbool is True else 0
+        print(p[i]+"\n"+p[j+1]) if printbool is True else print("",end="")
+    i += 1
